@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+	<!--- basic page needs ================================================== -->
+	<meta charset="utf-8">
+	<title>MusicDB</title>
+	<meta name="description" content="ERG3010 Final Project">
+	<meta name="author" content="DiBiaoZuiWen">
+
+	<!-- mobile specific metas ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS ================================================== -->
+	<link rel="stylesheet" href="../static/css/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/base.css">
+	<link rel="stylesheet" href="../static/css/demo.css">
+	<link rel="stylesheet" href="../static/css/vendor.css">
+	<link rel="stylesheet" href="../static/css/main.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/singer.css">
+	<!--- script ================================================== -->
+	<script src="../static/js/modernizr.js"></script>
+	<script src="../static/js/jquery-3.2.1.min.js"></script>
+
+	<!-- favicons ================================================== -->
+	<link rel="shortcut icon" href="../static/favicon1.ico" type="image/x-icon">
+	<link rel="icon" href="../static/favicon1.ico" type="image/x-icon">
+</head>
+
+<body>
+	<!-- home ================================================== -->
+	<main id="singer-page" class="s-home s-home--static col-twelve">
+		<div id="singer" class="home-content ">
+			<div class="row home-content__main pull-left" style="width:75%">
+				<!--singer-name为变量-->
+				<h1 id="title"> {{ singer_name }} </h1>
+				<div id="song-list">
+					<h2> songs </h2>
+					<iframe frameborder="no" border="0" src="song_list.html" scrolling="yes"></iframe>
+				</div>
+				<div id="lyrics_anaysis">
+					<h2> Lyrics Analysis </h2>
+					<img class="zoom" src="../static/images/a2.jpg"></img>
+					<h3> Word <span>Cloud</span></h3>
+					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident,sometimes on purpose (injected humour and the like).</p>
+				</div>
+				<div id="lyrics_generator">
+					<h2> Lyrics Generator </h2>
+					<div id="new_song">
+					<div id="left" class="generator">
+						<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+						<input type="button" value="click to create" onclick=""/>
+					</div>
+					<!--Function needed(after on click)↑-->
+					<div id="right" class="generator">
+						<p></p>
+					</div>
+				</div>
+
+				<div id="lyrics_network">
+					<h2> Lyrics Network </h2>
+					<div id="container"></div>
+				</div>
+			</div>
+		<div id = "player"></div>
+	</main>
+	<div id="home" class="pull-right" >
+        <a href="index.html">Home</a>
+    </div>
+	<div class="timeline col-two draggable">
+				<!--
+				这一段每个class为"album-image"的div都需要通过函数生成，包括title，style内的url链接以及后面的public time也是变量。
+				title为专辑名称，style内的url链接应该是可以利用爬图片的那个function找到对应的图片链接地址，时间的话数据库也有，最好可以按照时间顺序生成下面的div元素。
+				把这个作为template渲染的时候下面这些都是空的，然后我想的是点击专辑就直接跳到网易的页面好了，反正播放又不是我们的主要功能。
+				-->
+				<div class="album-image">
+					<div id="38477609" title= "十二号诛杀者（Cover洛天依）" style="background-image: url(../static/images/album/38477609_十二号诛杀者（Cover洛天依）.jpg);"></div>
+					<h3 class="public-time">2018.4.26</h3>
+				</div>
+				<div class="album-image">
+					<div id="38631994" title= "空空如也（Cover胡66）" style="background-image: url(../static/images/album/38631994_空空如也（Cover胡66）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="39276228" title= "典狱司（Cover音频怪物）" style="background-image: url(../static/images/album/39276228_典狱司（Cover音频怪物）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="39524205" title= "六一儿歌集锦" style="background-image: url(../static/images/album/39524205_六一儿歌集锦.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="39685001" title = "黑凤梨（Cover洛天依）" style="background-image: url(../static/images/album/39685001_黑凤梨（Cover洛天依）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="71683099" title = "何以歌（CoverAki阿杰）" style="background-image: url(../static/images/album/71683099_何以歌（CoverAki阿杰）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="71848121" title="时间飞行（Cover白宇、朱一龙）" style="background-image: url(../static/images/album/71848121_时间飞行（Cover白宇、朱一龙）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="72217937" title="为邪·九九八十一（Cover萧忆情）" style="background-image: url(../static/images/album/72217937_为邪·九九八十一（Cover萧忆情）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="72488277" title="此间有妙境" style="background-image: url(../static/images/album/72488277_此间有妙境.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="72757467" title="猫狗杂货铺" style="background-image: url(../static/images/album/72757467_猫狗杂货铺.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+				<div class="album-image">
+					<div id="74168962" title="昔友（逆水寒同人剧情歌）" style="background-image: url(../static/images/album/74168962_昔友（逆水寒同人剧情歌）.jpg);"></div>
+					<h3 class="public-time">2018.5.12</h3>
+				</div>
+			</div>
+	
+	<!-- preloader
+    ================================================== -->
+	<div id="preloader">
+		<div id="loader">
+			<div class="line-scale-pulse-out">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Java Script ================================================== -->
+	<script src="../static/js/sigma.min.js"></script>
+	<script src="../static/js/plug-in/sigma.parsers.json.min.js"></script>
+	<script src="../static/js/plug-in/sigma.plugins.animate.min.js"></script>
+	<script src="../static/js/particle.js"></script>
+	<script src="../static/js/plugins.js"></script>
+	<script src="../static/js/main.js"></script>
+	<script src="../static/js/new.js"></script>
+
+</body>

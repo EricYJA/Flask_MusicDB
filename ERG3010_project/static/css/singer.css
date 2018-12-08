@@ -1,0 +1,274 @@
+/* ===================================================================
+ * #singer-page  --(_site-layout.scss)
+ *
+ * ------------------------------------------------------------------- */
+body,html{
+	overflow-x:hidden;
+}
+.home-content{
+	overflow-x:hidden;
+}
+.home-content__main{
+	overflow-x:hidden;
+}
+
+.s-home--static{
+	background-image: url(../images/music1.jpg);
+}
+.s-home--static::before{
+	opacity: .85;
+  	background: linear-gradient(to right, black 0%, black 20%, transparent 100%);
+}
+ #singer-page h3::before{
+	content:none;
+}
+
+#singer .home-content__main{
+	padding-top: 15rem;
+}
+
+#singer h1{
+	text-align: left;
+	margin-left: 4rem;
+	display: block;
+}
+
+#singer h2{
+	font-size:3.5rem;
+	font-family: "metropolis-regular", sans-serif;
+	color:#FB6107;
+	text-align: left;
+	margin-left: 6rem;
+	margin-top: 4rem;
+}
+
+#singer .home-content__main h3{
+	font-size:2rem;
+	margin-top:50px;
+}
+
+#singer .home-content__main span{
+	color:#FB6107;
+}
+
+#singer img{
+	position: relative;
+	height:300px;
+	width:auto;
+	margin:30px 50px 30px 100px;
+	float:left;
+	z-index:510;
+ }
+
+#singer p{
+	position: relative;
+	text-align:justify;
+	padding-left: 30px;
+}
+
+ #lyrics_anaysis p{
+	 position: relative;
+	 text-align:justify;
+	 padding-left: 100px;
+ }
+
+.generator{
+	width:40%;
+	display: inline-block;
+	position: relative;
+}
+#left{
+	position: relative;
+	right: 5%;
+}
+#left input{
+	color: #274C77;
+	border:none;
+}
+
+#left input:hover{
+	border:none;
+	background-color: #274C77;
+	color:white;
+}
+#right{
+	position: relative;
+	left:5%;
+}
+
+.timeline {
+	margin-top:2rem;
+	right: 2rem;
+	z-index: 506;
+	width:20%;
+	position: fixed;
+	
+}
+.timeline .slick-list{
+	height: 30%;
+	width: 200px;
+}
+
+.timeline .slick-slide{
+	opacity: .5;
+	height: 200px;
+	margin:10% 0px 10% 0px;
+}
+
+.timeline .slick-active{
+	opacity: .5;
+	height: 200px;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.timeline .slick-current{
+	opacity: 1;
+	height: 200px;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.album-image:focus{
+	outline: transparent;
+}
+
+.album-image div{
+	left:15%;
+	top:15%;
+	width: 70%;
+	height: 70%;
+	position: relative;
+	background-size:contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: black;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.album-image div:hover{
+	width: 80%;
+	height: 80%;
+	left:10%;
+	top:10%;
+	font-size: 5rem;
+}
+
+.slick-slide h3{
+	padding:0px;
+	font-family: "metropolis-semibold", sans-serif;
+	font-size: 1.5rem;
+	margin: 3px 0px;
+	text-align: center;
+	color:white;
+	letter-spacing: 0.3rem;
+	width:100%;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	opacity: 0;
+}
+
+.slick-current div{
+	width: 90%;
+	height: 90%;
+	left:5%;
+	top:5%;
+}
+.slick-current div:hover{
+	width: 100%;
+	height: 100%;
+	left:0%;
+	top:0%;
+}
+.slick-current h3{
+	opacity: 1;
+	font-size:1.5rem;
+}
+
+.album-image .public-time{
+	margin-top: 15%;
+}
+
+#player {
+	position: absolute;
+	right: 24%;
+	top: 16rem;
+	display: block;
+	opacity: .8;
+	z-index:510;
+	width:auto;
+	height: auto;
+ }
+
+ #overlay-image{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 520;
+	display: none;
+	background: rgba(0,0,0,0.2);
+	overflow: hidden;
+}
+.zoom-image{
+	position: fixed;
+	top:10%;
+	height: 80%;
+	left:10%;
+	width: 80%;
+	z-index: 520;
+	display: none;
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#song-list iframe{
+	width: 100%;
+	height: 25rem;
+	margin-left: 100px;
+	background:transparent;
+}
+
+#home{
+	z-index:530;
+  	background-color:transparent;
+	position: absolute;
+	top:2.5%;
+	right:-15.5rem;
+	height: 42px;
+	width:20%;
+	text-transform: uppercase;
+  	letter-spacing: .2rem;
+	line-height: 42px;
+	-webkit-transition: all 0.5s ease-in-out;
+  	transition: all 0.5s ease-in-out;
+}
+#home a{
+	font-family: "metropolis-medium", sans-serif;
+	font-size: 15px;
+	display: block;
+	position: absolute;
+	top:2px;
+	color:#FB6107;
+	text-align: right;
+	-webkit-transition: all 0.5s ease-in-out;
+  	transition: all 0.5s ease-in-out;
+}
+
+#home a:hover{
+	color:#274C77
+}
+
+#container {
+	max-width: 1000px;
+	height: 500px;
+	color:white;
+	margin: 0px;
+}
+
+#container canvas{
+	left: 10%;
+}
