@@ -8,7 +8,7 @@
 
 - If you are a member in my group, just ask for the rest of the project. I only uploaded part of the project for security reason. 
 - This is for better communication and distribution for front end and back end. 
-- Follow the instructions below to get the whole project working if you are collaborator of this project
+- Follow the instructions below to get the whole project working if you are a collaborator of this project
 
 
 
