@@ -6,6 +6,7 @@ from ERG3010_project.myGenerator.wordcloud import gen_lyrics_wordcloud
 from ERG3010_project import app
 from ERG3010_project.models import Singer, Song, Sing
 from ERG3010_project.song_list_generator import html_generate
+from ERG3010_project.lyrics_html_generator import lyrics_html_generate
 
 
 def return_img_stream(img_local_path):
@@ -57,6 +58,7 @@ def singer():
         song_id_list.append(str(local_songs[0].song_id))
         song_name_list.append(str(local_songs[0].song_name))
 
+    # generate wordcloud
     total_lyrics.strip("+")
     gen_lyrics_wordcloud(total_lyrics)
     # generate song_list.html
@@ -76,12 +78,21 @@ def song(song_name):
     if len(list_songs) == 0:
         return redirect(url_for('index', error="3"))
 
+    # specify the song information
     s_id = list_songs[0].song_id
+    s_lyrics = list_songs[0].lyrics
+
+    # generate the html file
+    print(s_lyrics)
+    lyrics_html_generate(str(s_lyrics))
+
     list_sing = Sing.query.filter(Sing.song_song_id == s_id).all()
     list_singer = Singer.query.filter(Singer.singer_id == list_sing[0].singer_singer_id).all()
+
+    # find the singer name and the lyrics made by the user
     singer_name = list_singer[0].singer_name
     in_lyrics = request.args.get('lyrics')
-    print(in_lyrics)
+
     if in_lyrics is not None:
         gen_poster(list_songs[0].song_id, song_name, in_lyrics)
         file_path = "../static/posters/" + str(song_name) + ".png"
