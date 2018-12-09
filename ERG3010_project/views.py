@@ -2,9 +2,9 @@
 
 from flask import redirect, url_for, render_template, request, make_response
 from ERG3010_project.myGenerator.posterGenerator import gen_poster
+from ERG3010_project.myGenerator.wordcloud import gen_lyrics_wordcloud
 from ERG3010_project import app
 from ERG3010_project.models import Singer, Song, Sing
-from ERG3010_project.forms import LyricsForm
 
 
 def return_img_stream(img_local_path):
@@ -42,6 +42,15 @@ def singer():
         return redirect(url_for('index', error="2"))
 
     print(singer_list[0].singer_id)
+    sings_list = Sing.query.filter(Sing.singer_singer_id == singer_list[0].singer_id).all()
+    print(sings_list)
+    total_lyrics = ""
+    for i in range(len(sings_list)):
+        local_songs = Song.query.filter(Song.song_id == sings_list[i].song_song_id).all()
+        total_lyrics = total_lyrics + "+" + local_songs[0].lyrics
+
+    total_lyrics.strip("+")
+    gen_lyrics_wordcloud(total_lyrics)
 
     return render_template("singer.html", singer_name=name)
 
