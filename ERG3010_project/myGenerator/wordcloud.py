@@ -13,7 +13,7 @@ image_name = 'ERG3010_project/myGenerator/mask.png'
 font_name = 'ERG3010_project/myGenerator/STFANGSO.TTF'
 
 
-def generate_wordcloud(data):
+def generate_wordcloud(data, singer_name):
     font_path = font_name # 字体
 
     color_mask = np.array(Image.open(image_name))  # the shape of the world cloud
@@ -29,17 +29,18 @@ def generate_wordcloud(data):
 
     image_colors = ImageColorGenerator(color_mask)
 
-    fig, axes = plt.subplots(1, 3)
-    axes[0].imshow(wordcloud, interpolation='bilinear')     # original color
-    axes[1].imshow(wordcloud.recolor(color_func=image_colors), interpolation='bilinear')        # recolor
-    axes[2].imshow(color_mask, cmap=plt.cm.gray, interpolation='bilinear')      # the mask picture
+    # fig, axes = plt.subplots(1, 3)
+    # axes[0].imshow(wordcloud, interpolation='bilinear')     # original color
+    # axes[1].imshow(wordcloud.recolor(color_func=image_colors), interpolation='bilinear')        # recolor
+    # axes[2].imshow(color_mask, cmap=plt.cm.gray, interpolation='bilinear')      # the mask picture
 
-    wordcloud.to_file(path.join(work_path, 'color_{0}_{1}.png'.format(max_words, max_font_size)))     # save to file
+    wordcloud.recolor(color_func=image_colors)
+    wordcloud.to_file(path.join(work_path, '{0}.png'.format(singer_name)))     # save to file
 
-    for ax in axes:
-        ax.set_axis_off()
-    plt.clf()
-    plt.close()
+    # for ax in axes:
+    #     #     ax.set_axis_off()
+    #     # plt.clf()
+    #     # plt.close()
 
 
 def seg(data_file):
@@ -64,6 +65,6 @@ def seg(data_file):
     return ' '.join(words_data)
 
 
-def gen_lyrics_wordcloud(data):
+def gen_lyrics_wordcloud(data, singer_name):
     in_data = seg(data)
-    generate_wordcloud(in_data)
+    generate_wordcloud(in_data, singer_name)
