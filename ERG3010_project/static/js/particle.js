@@ -23,7 +23,9 @@ sigma.parsers.json('../static/file.json',
 			defaultNodeColor: '#FB6107',
 			defaultLabelColor: '#FFFFFF',
 			minEdgeSize: 0.1,
-			maxEdgeSize: 3
+			maxEdgeSize: 3,
+			mouseWheelEnabled:false,
+			
 		}
 	},
 

@@ -82,11 +82,23 @@ body{
 #song p{
 	position: relative;
 	text-align:justify;
-	padding-left: 30px;
 }
-
+#left{
+	margin-top:30px;
+	position: relative;
+}
 #left p{
-	padding-left: 0px;
+	margin-left: 15%;
+	height:80%;
+	width:70%;
+}
+#right{
+	margin-top:30px;
+}
+#right img{
+	margin:0px;
+	padding-top:10%;
+	height: 400px;
 }
 
 #right textarea{
@@ -110,8 +122,4 @@ body{
 	height: 25rem;
 	margin-left: 100px;
 	background:transparent;
-}
-
-#right #poster{
-	width:300px;
 }

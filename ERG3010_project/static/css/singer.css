@@ -262,6 +262,14 @@ body,html{
 	color:#274C77
 }
 
+#lyrics_network h3{
+	float: left;
+	z-index:520;
+	position: absolute;
+	bottom:9%;
+	left: 15%;
+}
+
 #lyrics_network h3::after{
 	font-family: "Fontawesome";
 	content:"\f055";
@@ -296,4 +304,26 @@ body,html{
 	left:5%;
 	z-index: 520;
 	display: none;
+}
+
+#zoom-title{
+	float: left;
+	z-index:530;
+	position: fixed;
+	right: 3%;
+	top:3%;
+	margin-top:0px;
+}
+
+#zoom-title::after{
+	font-family: "Fontawesome";
+	content:"\f00d";
+	width:100px;
+	height: 100px;
+	color:white;
+	font-size: 2rem;
+}
+
+#zoom-title:hover::after{
+	color:#FB6107;	
 }

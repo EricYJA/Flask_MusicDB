@@ -55,10 +55,13 @@ $(document).ready(function(){
 
 	$("#container-zoom").click(function(){
 		$('<div id="overlay-image" style="background: rgba(0,0,0,0.9);"></div>').insertAfter("main");
+		$('<h3 id="zoom-title"></h3>').insertAfter("main");
+		$("#zoom-title").fadeIn();
 		$("#overlay-image").fadeIn();
 		$("#container-p").fadeIn();
-		$("#overlay-image").click(function(){
+		$("#zoom-title").click(function(){
 			$("#container-p").css("display","none")
+			$("#overlay-image").remove();
 			$(this).remove();
 		});
 	});
