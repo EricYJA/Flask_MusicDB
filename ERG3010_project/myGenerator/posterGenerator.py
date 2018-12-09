@@ -204,7 +204,7 @@ class Img():
     def __init__(self, save_dir=None):
         self.save_dir = "ERG3010_project/static/posters"
 
-        self.font_family = 'ERG3010_project/myGenerator/STKAITI.TTF'
+        self.font_family = 'ERG3010_project/myGenerator/STFANGSO.TTF'
         self.font_size = 30 # 字体大小
         self.line_space = 30 # 行间隔大小
         self.word_space = 5

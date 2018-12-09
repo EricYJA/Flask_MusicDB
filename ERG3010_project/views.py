@@ -52,15 +52,15 @@ def singer():
     for i in range(len(sings_list)):
         # for the word cloud
         local_songs = Song.query.filter(Song.song_id == sings_list[i].song_song_id).all()
-        total_lyrics = total_lyrics + "+" + local_songs[0].lyrics
+        total_lyrics = total_lyrics + "+" + str(local_songs[0].lyrics)
 
         # for the generation of front end
         song_id_list.append(str(local_songs[0].song_id))
         song_name_list.append(str(local_songs[0].song_name))
 
-    # generate wordcloud
-    total_lyrics.strip("+")
-    gen_lyrics_wordcloud(total_lyrics)
+    # # generate wordcloud
+    # total_lyrics.strip("+")
+    # gen_lyrics_wordcloud(total_lyrics)
     # generate song_list.html
     html_generate(song_name_list, song_id_list)
 
