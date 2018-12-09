@@ -35,7 +35,7 @@
 		<div id="song" class="home-content ">
 			<div class="row home-content__main" style="width:75%">
 				<!--singer-name为变量-->
-				<h1>{{ song }}<span id="415086097"> by {{ singer }}</span></h1>
+				<h1>{{ song }}<span id={{ song_id }}> by {{ singer }} </span></h1>
 				<div id="lyrics">
 					<h2> Lyrics </h2>
 					<iframe frameborder="no" border="0" src="lyrics.html" scrolling="yes"></iframe>
@@ -49,16 +49,16 @@
 							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
 								at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
 								opposed to using 'Content here, content here', making it look like readable English.</p>
-							<form id="posform">
+							<form id="posform" methed="get">
 								<input id="poster_creater" type="submit" value="click to create" />
 							</form>
 						</div>
 						<!--Function needed(after on click)↑-->
 						<div id="right" class="generator">
 							{% if img_stream %}
-								<img src="data:;base64,{{img_stream}}">
+								<img id="poster" class="zoom" src={{img_stream}}/>
 							{% else %}
-								<textarea class = "body" row ="4" col="20" form="posform"></textarea>
+								<textarea class = "body" row ="4" col="20" form="posform" name="lyrics"></textarea>
 							{% endif %}
 								<!-- <form>
 								<textarea class = "body" row ="4" col="20"></textarea>
