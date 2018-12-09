@@ -52,10 +52,15 @@ $(document).ready(function(){
 		$("#play-album").css("display","none");
 		$("#play-album").fadeIn(3000);
 	});
-	$("#poster_creater").click(function(){
-		var img_stream = '<img src="data:;base64,{{img_stream}}">';
-		$("#right").empty();
-		$("#right").append(img_stream);
+
+	$("#container-zoom").click(function(){
+		$('<div id="overlay-image" style="background: rgba(0,0,0,0.9);"></div>').insertAfter("main");
+		$("#overlay-image").fadeIn();
+		$("#container-p").fadeIn();
+		$("#overlay-image").click(function(){
+			$("#container-p").css("display","none")
+			$(this).remove();
+		});
 	});
 });
 
