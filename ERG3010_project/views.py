@@ -64,7 +64,7 @@ def song(song_name):
         file_path = "ERG3010_project/posters/" + str(song_name) + ".png"
         img_stream = return_img_stream(file_path)
         return render_template("song.html", song=song, img_stream=img_stream)
-    return render_template("song.html", song=song)
+    return render_template("song.html", song=song,form=l_form)
 
 
 @app.route('/song/lyrics.html')

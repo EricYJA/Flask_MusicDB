@@ -49,11 +49,20 @@
 							<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
 								at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
 								opposed to using 'Content here, content here', making it look like readable English.</p>
-							<input id="poster_creater" type="button" value="click to create" />
+							<form id="posform">
+								<input id="poster_creater" type="submit" value="click to create" />
+							</form>
 						</div>
 						<!--Function needed(after on click)↑-->
 						<div id="right" class="generator">
-							<textarea row ="4" col="20"></textarea>
+							{% if img_stream %}
+								<img src="data:;base64,{{img_stream}}">
+							{% else %}
+								<textarea class = "body" row ="4" col="20" form="posform"></textarea>
+							{% endif %}
+								<!-- <form>
+								<textarea class = "body" row ="4" col="20"></textarea>
+								</form> -->
 						</div>
 					</div>
 				</div>
