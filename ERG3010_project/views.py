@@ -61,12 +61,12 @@ def singer():
     # generate wordcloud
     total_lyrics.strip("+")
     gen_lyrics_wordcloud(total_lyrics, str(singer_list[0].singer_name))
-    cloud_addr = "ERG3010_project/static/lyricsCloud" + str(singer_list[0].singer_name) + ".png"
+    cloud_addr = "ERG3010_project/static/lyricsCloud/" + str(singer_list[0].singer_name) + ".png"
 
     # generate song_list.html
     html_generate(song_name_list, song_id_list)
 
-    return render_template("singer.html", singer_name=name)
+    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr)
 
 
 @app.route('/song_list.html')
