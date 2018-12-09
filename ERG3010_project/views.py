@@ -3,7 +3,8 @@
 from flask import redirect, url_for, render_template, request, make_response
 from ERG3010_project.myGenerator.posterGenerator import gen_poster
 from ERG3010_project import app
-from ERG3010_project.models import Singer, Song
+from ERG3010_project.models import Singer, Song, Sing
+from ERG3010_project.forms import LyricsForm
 
 
 def return_img_stream(img_local_path):
@@ -56,17 +57,20 @@ def song_list():
     return render_template("song_list.html")
 
 
-@app.route('/song/<song>', methods=['GET', 'POST'])
-def song(song):
-    singer_list = Song.query.filter(Song.song_name == str(song)).all()
-    print(singer_list[0])
-    if len(singer_list) == 0:
+@app.route('/song/<song_name>', methods=['GET', 'POST'])
+def song(song_name):
+    list_songs = Song.query.filter(Song.song_name == str(song_name)).all()
+    if len(list_songs) == 0:
         return redirect(url_for('index', error="3"))
 
-    gen_poster(singer_list[0].song_id)
-    file_path = "ERG3010_project/posters/" + "睡着了" + ".png"
-    img_stream = return_img_stream(file_path)
-    return render_template("song.html")
+    l_form = LyricsForm()
+    if l_form.validate_on_submit():
+        in_lyrics = l_form.body.data
+        gen_poster(list_songs[0].song_id, song_name, in_lyrics)
+        file_path = "ERG3010_project/posters/" + str(song_name) + ".png"
+        img_stream = return_img_stream(file_path)
+        return render_template("song.html", song=song, img_stream=img_stream)
+    return render_template("song.html", song=song)
 
 
 @app.route('/song/lyrics.html')

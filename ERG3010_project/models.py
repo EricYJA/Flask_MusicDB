@@ -16,3 +16,9 @@ class Song(db.Model):
     song_name = db.Column(db.String(15))
     lyrics = db.Column(db.Text)
     play_times = db.Column(db.String(15))
+
+
+class Sing(db.Model):
+    __name__ = "sing"
+    song_id = db.Column(db.String(15), primary_key=True)
+    singer_id = db.Column(db.String(15), db.ForeignKey('singer.singer_id'))  # , db.ForeignKey('singer.singer_id')
