@@ -39,7 +39,7 @@ body{
 }
 #song h1 span::after{
 	font-family: "Fontawesome";
-	content:"  \f144"
+	content:"\f144"
 }
 #song h1 span:hover::after{
 	color: #FB6107;

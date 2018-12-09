@@ -15,19 +15,41 @@ sigma.parsers.json('../static/file.json',
 			container: document.getElementById('container'),
 			type: 'canvas',
 		},
+		// renderer: {
+		// 	container: document.getElementById('container'),
+		// 	type: 'canvas',
+		// },
 		settings: {
 			defaultNodeColor: '#FB6107',
-			defaultLabelColor: '#FFFFFF'
+			defaultLabelColor: '#FFFFFF',
+			minEdgeSize: 0.1,
+			maxEdgeSize: 3
 		}
 	},
 
 	function(s){
+		s.addRenderer({
+			container: document.getElementById('container-p'),
+			type: 'canvas',
+			settings: {
+				defaultNodeColor: '#FB6107',
+				labelColor: 'node',
+				labelThreshold:3,
+				defaultLabelSize: 12,
+				minEdgeSize: 0.1,
+				maxEdgeSize: 3
+
+			}
+		  });
 		s.graph.nodes().forEach(function (n) {
 			n.x = Math.random() * 300;
 			n.y = Math.random() * 300;
 			n.ax = Math.random() * 2 -1;
 			n.ay = Math.random() * 2 -1;
 		});
+		s.graph.edges().forEach(function(e){
+			e.type = "curve";
+		})
 		s.refresh();
 		// We first need to save the original colors of our
 		// nodes and edges, like this:
@@ -50,10 +72,12 @@ sigma.parsers.json('../static/file.json',
 			toKeep[nodeId] = e.data.node;
 
 			s.graph.nodes().forEach(function (n) {
-				if (toKeep[n.id])
+				if (toKeep[n.id]){
 					n.color = n.originalColor;
-				else
+				}
+				else{
 					n.color = '#111';
+				}
 			});
 
 			s.graph.edges().forEach(function (e) {

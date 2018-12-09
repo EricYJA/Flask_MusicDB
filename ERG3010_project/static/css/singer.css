@@ -233,7 +233,7 @@ body,html{
 }
 
 #home{
-	z-index:530;
+	z-index:509;
   	background-color:transparent;
 	position: absolute;
 	top:2.5%;
@@ -262,6 +262,19 @@ body,html{
 	color:#274C77
 }
 
+#lyrics_network h3::after{
+	font-family: "Fontawesome";
+	content:"\f055";
+	width:100px;
+	height: 100px;
+	color:white;
+	font-size: 3rem;
+}
+
+#lyrics_network h3:hover::after{
+	color:#FB6107;	
+}
+
 #container {
 	max-width: 1000px;
 	height: 500px;
@@ -271,4 +284,16 @@ body,html{
 
 #container canvas{
 	left: 10%;
+}
+
+#container-p {
+	width: 90%;
+	height: 700px;
+	color:white;
+	margin: 0px;
+	position: fixed;
+	top:10%;
+	left:5%;
+	z-index: 520;
+	display: none;
 }
