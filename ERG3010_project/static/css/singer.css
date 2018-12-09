@@ -209,7 +209,7 @@ body,html{
 	left: 0;
 	z-index: 520;
 	display: none;
-	background: rgba(0,0,0,0.2);
+	background: rgba(0,0,0,0.5);
 	overflow: hidden;
 }
 .zoom-image{

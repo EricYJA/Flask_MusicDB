@@ -61,12 +61,13 @@ def song(song_name):
     list_sing = Sing.query.filter(Sing.song_song_id == s_id).all()
     list_singer = Singer.query.filter(Singer.singer_id == list_sing[0].singer_singer_id).all()
     singer_name = list_singer[0].singer_name
-    in_lyrics = request.form.get('lyrics')
+    in_lyrics = request.args.get('lyrics')
+    print(in_lyrics)
     if in_lyrics is not None:
         gen_poster(list_songs[0].song_id, song_name, in_lyrics)
-        file_path = "ERG3010_project/posters/" + str(song_name) + ".png"
-        img_stream = return_img_stream(file_path)
-        return render_template("song.html", song=song_name, singer=singer_name, img_stream=img_stream, song_id=s_id)
+        file_path = "../static/posters/" + str(song_name) + ".png"
+        # img_stream = return_img_stream(file_path)
+        return render_template("song.html", song=song_name, singer=singer_name, img_stream=file_path, song_id=s_id)
     return render_template("song.html", song=song_name, singer=singer_name, song_id=s_id)
 
 
