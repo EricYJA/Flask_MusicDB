@@ -20,5 +20,5 @@ class Song(db.Model):
 
 class Sing(db.Model):
     __name__ = "sing"
-    song_id = db.Column(db.String(15), primary_key=True)
-    singer_id = db.Column(db.String(15), db.ForeignKey('singer.singer_id'))  # , db.ForeignKey('singer.singer_id')
+    song_song_id = db.Column(db.String(15), primary_key=True)
+    singer_singer_id = db.Column(db.String(15), db.ForeignKey('singer.singer_id'))  # , db.ForeignKey('singer.singer_id')
