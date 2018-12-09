@@ -58,13 +58,16 @@ def song(song_name):
         return redirect(url_for('index', error="3"))
 
     l_form = LyricsForm()
+    list_sing = Sing.query.filter(Sing.song_song_id == list_songs[0].song_id).all()
+    list_singer = Singer.query.filter(Singer.singer_id == list_sing[0].singer_singer_id).all()
+    singer_name = list_singer[0].singer_name
     if l_form.validate_on_submit():
         in_lyrics = l_form.body.data
         gen_poster(list_songs[0].song_id, song_name, in_lyrics)
         file_path = "ERG3010_project/posters/" + str(song_name) + ".png"
         img_stream = return_img_stream(file_path)
-        return render_template("song.html", song=song, img_stream=img_stream)
-    return render_template("song.html", song=song)
+        return render_template("song.html", song=song_name, singer=singer_name, img_stream=img_stream)
+    return render_template("song.html", song=song_name, singer=singer_name)
 
 
 @app.route('/song/lyrics.html')

@@ -63,10 +63,6 @@ Great! Start working, partner.
 
 
 
----
-
-
-
 ### VERY IMPORTANT !!!
 
 ---
@@ -79,3 +75,15 @@ git add .
 
 ONLY add the files you have changed into the staging area. Good luck!
 
+
+###The singer's songs I have in the server
+
+- 李健
+
+    沧海轻舟
+    假如爱有天意
+
+- 张国荣
+    
+    月亮代表我的心
+    你这样恨我
