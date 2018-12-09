@@ -13,9 +13,9 @@ class Singer(db.Model):
 class Song(db.Model):
     __name__ = "song"
     song_id = db.Column(db.String(15), primary_key=True)
-    song_name = db.Column(db.String(15))
+    song_name = db.Column(db.String(250))
     lyrics = db.Column(db.Text)
-    play_times = db.Column(db.String(15))
+    play_times = db.Column(db.String(11))
 
 
 class Sing(db.Model):
