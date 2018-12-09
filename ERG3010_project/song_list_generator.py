@@ -2,7 +2,7 @@ def html_generate(song_name,song_id):
 	GEN_HTML = "templates\song_list.html"
 	f = open(GEN_HTML,'w')
 	table_content = ""
-	for i in range(len(song_id)/2):
+	for i in range(len(song_id)//2):
 		table_content = table_content + """
 		<tr>
 				<td><a id="%s" href="{{ 'song/%s' }}" >%s</a></td>

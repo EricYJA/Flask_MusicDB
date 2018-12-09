@@ -38,6 +38,8 @@ def generate_wordcloud(data):
 
     for ax in axes:
         ax.set_axis_off()
+    plt.clf()
+    plt.close()
 
 
 def seg(data_file):

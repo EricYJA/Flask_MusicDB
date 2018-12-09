@@ -5,6 +5,7 @@ from ERG3010_project.myGenerator.posterGenerator import gen_poster
 from ERG3010_project.myGenerator.wordcloud import gen_lyrics_wordcloud
 from ERG3010_project import app
 from ERG3010_project.models import Singer, Song, Sing
+from ERG3010_project.song_list_generator import html_generate
 
 
 def return_img_stream(img_local_path):
@@ -17,6 +18,7 @@ def return_img_stream(img_local_path):
 
 @app.route('/', methods=['GET'])
 def index():
+    # This is for the error handing
     error = request.args.get('error')
     if str(error) == "1":
         return render_template("index.html", error="Illegal Character")
@@ -31,26 +33,34 @@ def index():
 @app.route('/singer', methods=['GET', 'POST'])
 def singer():
 
+    # this is for the error handling for invalid character
     name = request.args.get('singer_name')
     if ("'" in name) or ("--" in name) or (";" in name) or (")" in name) or ("(" in name):
         return redirect(url_for('index', error="1"))
 
-    print(name)
+    # this is for error handling for un-find name -> ORM query used
     singer_list = Singer.query.filter(Singer.singer_name == name).all()
-
     if len(singer_list) == 0:
         return redirect(url_for('index', error="2"))
 
-    print(singer_list[0].singer_id)
+    # this is for the word cloud generation / the dynamic generation of the song name
     sings_list = Sing.query.filter(Sing.singer_singer_id == singer_list[0].singer_id).all()
-    print(sings_list)
     total_lyrics = ""
+    song_id_list = []
+    song_name_list = []
     for i in range(len(sings_list)):
+        # for the word cloud
         local_songs = Song.query.filter(Song.song_id == sings_list[i].song_song_id).all()
         total_lyrics = total_lyrics + "+" + local_songs[0].lyrics
 
+        # for the generation of front end
+        song_id_list.append(str(local_songs[0].song_id))
+        song_name_list.append(str(local_songs[0].song_name))
+
     total_lyrics.strip("+")
     gen_lyrics_wordcloud(total_lyrics)
+    # generate song_list.html
+    html_generate(song_name_list, song_id_list)
 
     return render_template("singer.html", singer_name=name)
 
