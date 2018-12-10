@@ -51,9 +51,10 @@ def seg(data_file):
     for lyr in lyrics:
         lyr = lyr.split("\n")
         for line in lyr:
-            line = re.sub("[.\n]", ' ', line)
-        lyr = " ".join(lyr)
-        data.append(lyr)
+            if ":" not in line:
+                line = re.sub("[.\n]", ' ', line)
+                # line = " ".join(line)
+                data.append(line)
     data = " ".join(data)
 
     words_data = []
