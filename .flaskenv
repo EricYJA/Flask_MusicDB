@@ -1,0 +1,2 @@
+FLASK_APP=ERG3010_project
+FLASK_ENV=development

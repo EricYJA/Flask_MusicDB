@@ -1,0 +1,6 @@
+*.DS_Store
+*.idea
+__init__.py
+__pycache__
+ERG3010_project/static/lyricsCloud/
+ERG3010_project/static/posters/

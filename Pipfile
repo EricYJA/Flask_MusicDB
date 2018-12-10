@@ -1,0 +1,24 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+selenium = "*"
+flask-sqlalchemy = "*"
+jieba = "*"
+pillow = "*"
+request = "*"
+numpy = "*"
+wordcloud = "*"
+flask = "*"
+wtforms = "*"
+pymysql = "*"
+faker = "*"
+beautifulsoup4 = "*"
+lxml = "*"
+
+[requires]
+python_version = "3.6"
