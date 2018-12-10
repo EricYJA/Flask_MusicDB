@@ -8,6 +8,7 @@ from ERG3010_project.models import Singer, Song, Sing
 from ERG3010_project.song_list_generator import html_generate
 from ERG3010_project.lyrics_html_generator import lyrics_html_generate
 from ERG3010_project.myGenerator.analysis2 import network
+from ERG3010_project.time_line_generator import timeline_generator
 
 
 def return_img_stream(img_local_path):
@@ -59,16 +60,19 @@ def singer():
         song_id_list.append(str(local_songs[0].song_id))
         song_name_list.append(str(local_songs[0].song_name))
 
-    # generate wordcloud json
+    # generate wordcloud, json
     total_lyrics.strip("+")
     gen_lyrics_wordcloud(total_lyrics, str(singer_list[0].singer_name))
     network(total_lyrics, str(singer_list[0].singer_name))
     cloud_addr = "../static/lyricsCloud/" + str(singer_list[0].singer_name) + ".png"
 
+    # generate timeline
+    album_list = timeline_generator(str(singer_list[0].singer_id), name)
+
     # generate song_list.html
     html_generate(song_name_list, song_id_list)
 
-    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr)
+    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr) #, album_list=album_list)
 
 
 @app.route('/song_list.html')

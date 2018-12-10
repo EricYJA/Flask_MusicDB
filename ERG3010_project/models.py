@@ -22,3 +22,10 @@ class Sing(db.Model):
     __name__ = "sing"
     song_song_id = db.Column(db.String(15), primary_key=True)
     singer_singer_id = db.Column(db.String(15), db.ForeignKey('singer.singer_id'))  # , db.ForeignKey('singer.singer_id')
+
+
+class Pics():
+    a_id = ""
+    a_name = ""
+    a_url = ""
+    a_date = ""
