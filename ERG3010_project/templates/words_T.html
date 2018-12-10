@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Echarts</title>
+    <script type="text/javascript" src="{{url_for('static', filename='js/graph.js')}}"></script>    
+    <script type="text/javascript" src="{{url_for('static', filename='js/graph2.js')}}"></script>
+</head>
+<body>
+    <div id="a81bba8742d9445486c2996cab457e87" style="width:800px;height:500px;"></div>
+    <script type="text/javascript">
+
+var myChart_a81bba8742d9445486c2996cab457e87 = echarts.init(document.getElementById('a81bba8742d9445486c2996cab457e87'), 'light', {renderer: 'canvas'});
+
+var option_a81bba8742d9445486c2996cab457e87 = {
+    "title": [
+        {
+            "text": "TIME LIST",
+            "left": "auto",
+            "top": "auto",
+            "textStyle": {
+                "fontSize": 18,
+                "color":"#FFF"
+            },
+            "subtextStyle": {
+                "fontSize": 12
+            }
+        }
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "vertical",
+        "left": "95%",
+        "top": "center",
+        "feature": {
+            "saveAsImage": {
+                "show": true,
+                "title": "save as image"
+            },
+            "restore": {
+                "show": true,
+                "title": "restore"
+            },
+            "dataView": {
+                "show": true,
+                "title": "data view"
+            }
+        }
+    },
+    "series_id": 6136542,
+    "tooltip": {
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "textStyle": {
+            "fontSize": 14,
+            "color":"#FFF"
+        },
+        "backgroundColor": "rgba(50,50,50,0.7)",
+        "borderColor": "#333",
+        "borderWidth": 0
+    },
+    "series": [],
+    "legend": [
+        {
+            "data": [
+                "TIME"
+            ],
+            "selectedMode": "multiple",
+            "show": true,
+            "left": "center",
+            "top": "top",
+            "orient": "horizontal",
+            "textStyle": {
+                "fontSize": 12,
+                "color":"#FFF"
+            }
+        }
+    ],
+    "animation": true,
+    "angleAxis": {
+        "show": true,
+        "type": "category",
+        "clockwise": true,
+        "startAngle": 90,
+        "boundaryGap": true,
+        "splitLine": {
+            "show": true,
+            "lineStyle": {
+                "normal": {
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color":"#FFF"
+                }
+            }
+        },
+        "axisLine": {
+            "show": true,
+            "lineStyle": {
+                "normal": {
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color":"#FFF"
+                }
+            }
+        },
+        "axisLabel": {
+            "interval": 0,
+            "color":"#FFF"
+        },
+        "z": 50
+    },
+    "radiusAxis": {
+        "show": true,
+        "type": "category",
+        "axisLine": {
+            "show": true,
+            "lineStyle": {
+                "normal": {
+                    "width": 1,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color":"#FFF"
+                }
+            }
+        },
+        "axisLabel": {
+            "rotate": 0,
+            "color":"#FFF"
+        },
+        "z": 50
+    },
+    "polar": {},
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597",
+        "#f6f5ec"
+    ]
+};
+myChart_a81bba8742d9445486c2996cab457e87.setOption(option_a81bba8742d9445486c2996cab457e87);
+
+</script>
+</body>
+</html>

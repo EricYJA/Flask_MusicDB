@@ -48,6 +48,7 @@ $(document).ready(function(){
 	$("#song h1 span").click(function(){
 		var id = $(this).attr("id");
 		var player = '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id='+id+'&auto=1&height=66"></iframe>'
+		$("#player").empty()
 		$("#player").append(player);
 		$("#play-album").css("display","none");
 		$("#play-album").fadeIn(3000);
@@ -64,6 +65,15 @@ $(document).ready(function(){
 			$("#overlay-image").remove();
 			$(this).remove();
 		});
+	});
+
+	$("#arrow-down").click(function(){
+		var h = $(document).height()-$(window).height();
+		$('html,body').animate({scrollTop:h},'slow');
+	});
+	
+	$("#arrow-up").click(function(){
+		$('html,body').animate({scrollTop:0},'slow');
 	});
 });
 

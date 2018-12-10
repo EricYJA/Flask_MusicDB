@@ -6,7 +6,6 @@ import jieba.analyse
 from wordcloud import WordCloud, ImageColorGenerator
 import numpy as np
 from PIL import Image
-# import matplotlib.pyplot as plt
 
 work_path = 'ERG3010_project/static/lyricsCloud'
 image_name = 'ERG3010_project/myGenerator/mask.png'
@@ -29,19 +28,8 @@ def generate_wordcloud(data, singer_name):
 
     image_colors = ImageColorGenerator(color_mask)
 
-    # fig, axes = plt.subplots(1, 3)
-    # axes[0].imshow(wordcloud, interpolation='bilinear')     # original color
-    # axes[1].imshow(wordcloud.recolor(color_func=image_colors), interpolation='bilinear')        # recolor
-    # axes[2].imshow(color_mask, cmap=plt.cm.gray, interpolation='bilinear')      # the mask picture
-
     wordcloud.recolor(color_func=image_colors)
     wordcloud.to_file(path.join(work_path, '{0}.png'.format(singer_name)))     # save to file
-
-    # for ax in axes:
-    #     #     ax.set_axis_off()
-    #     # plt.clf()
-    #     # plt.close()
-
 
 def seg(data_file):
     f = open("ERG3010_project/myGenerator/stopwords.txt", 'r', encoding = 'utf-8-sig')

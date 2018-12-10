@@ -272,3 +272,17 @@ input[type="password"]:focus::-webkit-input-placeholder{
 }
 
 
+
+#arrow-down::after{
+	font-family: 'Fontawesome';
+	content:'\f063';
+	color:#E7ECEF;
+	font-size: 3rem
+}
+
+#arrow-up::after{
+	font-family: 'Fontawesome';
+	content:'\f062';
+	color:#E7ECEF;
+	font-size: 3rem;
+}
