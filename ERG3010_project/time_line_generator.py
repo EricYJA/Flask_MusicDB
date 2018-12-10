@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from ERG3010_project.models import Pics
+from selenium.webdriver.chrome.options import Options
 import re
 
 
@@ -31,7 +32,11 @@ def deal_url(str):
 
 
 def get(singer_id, singer_name):
-    browser = webdriver.Chrome('ERG3010_project/chromedriver')
+
+    # This is for silent crawling #
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    browser = webdriver.Chrome('ERG3010_project/chromedriver', chrome_options=chrome_options)
 
     name_ = singer_name
     id_ = singer_id
