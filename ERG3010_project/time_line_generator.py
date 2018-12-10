@@ -30,8 +30,9 @@ def deal_url(str):
     return str
 
 
-def get(singer_id,singer_name): 
+def get(singer_id, singer_name):
     browser = webdriver.Chrome('ERG3010_project/chromedriver')
+
     name_ = singer_name
     id_ = singer_id
     album_url = 'https://music.163.com/artist/album?id={}'.format(id_)
@@ -39,7 +40,7 @@ def get(singer_id,singer_name):
     browser.get(album_url)
     browser.switch_to.frame('g_iframe')
     html = browser.page_source
-    print("1")
+    browser.quit()
 
     try:
         return get_all_album(html)
