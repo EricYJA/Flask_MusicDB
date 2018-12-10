@@ -50,17 +50,24 @@ def network(in_lyrics, singer_name):
     # print(relationships)
     relationship = []
     id_ = 0
+    col = "#A9A9A9"
     for key, value in relationships.items():
         for key_sub, value_sub in value.items():
-            dic = {"id": str(id_), "source": key, "target": key_sub, "size": value_sub}
+            dic = {"id": str(id_), "source": key, "target": key_sub, "size": value_sub, "color": col}
             relationship.append(dic)
             id_ += 1
     word = []
 
-    x = randint(1,100)
-    y = randint(1,100)
+    # x = randint(1,100)
+    # y = randint(1,100)
     for key, value in words.items():
-        dic = {"id": key, "label": key, "size": value, "x": x, "y": y}
+        if value >= 80:
+            col = "#FB6107"
+        elif value < 80 and value > 40:
+            col = "#274C77"
+        elif value <= 40:
+            col = "#FFFFFF"
+        dic = {"id": key, "label": key, "size": value, "color": col}
         word.append(dic)
     read = {"nodes": word, "edges": relationship}
 
