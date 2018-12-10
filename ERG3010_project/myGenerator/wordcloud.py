@@ -6,7 +6,6 @@ import jieba.analyse
 from wordcloud import WordCloud, ImageColorGenerator
 import numpy as np
 from PIL import Image
-# import matplotlib.pyplot as plt
 
 work_path = 'ERG3010_project/static/lyricsCloud'
 image_name = 'ERG3010_project/myGenerator/mask.png'

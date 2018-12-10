@@ -7,6 +7,7 @@ from ERG3010_project import app
 from ERG3010_project.models import Singer, Song, Sing
 from ERG3010_project.song_list_generator import html_generate
 from ERG3010_project.lyrics_html_generator import lyrics_html_generate
+from ERG3010_project.myGenerator.analysis2 import network
 
 
 def return_img_stream(img_local_path):
@@ -58,9 +59,10 @@ def singer():
         song_id_list.append(str(local_songs[0].song_id))
         song_name_list.append(str(local_songs[0].song_name))
 
-    # generate wordcloud
+    # generate wordcloud json
     total_lyrics.strip("+")
     gen_lyrics_wordcloud(total_lyrics, str(singer_list[0].singer_name))
+    network(total_lyrics, str(singer_list[0].singer_name))
     cloud_addr = "../static/lyricsCloud/" + str(singer_list[0].singer_name) + ".png"
 
     # generate song_list.html
