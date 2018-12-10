@@ -50,6 +50,7 @@
 						will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
 						accident,sometimes on purpose (injected humour and the like).</p>
 				</div>
+				<!--
 				<div id="lyrics_generator">
 					<h2> Lyrics Generator </h2>
 					<div id="new_song">
@@ -58,23 +59,32 @@
 								at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
 								opposed to using 'Content here, content here', making it look like readable English.</p>
 							<input type="button" value="click to create" onclick="" />
-						</div>
+						</div>-->
 						<!--Function needed(after on click)↑-->
+						<!--
 						<div id="right" class="generator">
 							<p></p>
 						</div>
-					</div>
+					</div>-->
+					
 					<div id="lyrics_network">
 						<h2> Lyrics Network </h2>
 						<div id="container"></div>
 						<h3 id="container-zoom"></h3>
 					</div>
-					<!---
-				<div id="sentiment-analysis">
-					<h2> Sentiment Analysis </h2>
-					<iframe frameborder="no" border="0" src="Singer_SA.html" scrolling="yes"></iframe>
-				</div>
-				-->
+					<div id="sentiment-analysis">
+						<h2> Sentiment Analysis </h2>
+						<br/>
+						<iframe frameborder="no" border="0" src={{url_for('Singer_SA')}} style="height:500px;width:800px"scrolling="no"></iframe>
+					</div>
+
+					<div id="words-frequency">
+						<h2> Words Frequency </h2>
+						<br/>
+						<iframe frameborder="no" border="0" src={{url_for('words_A')}} style="height:500px;width:800px"scrolling="no"></iframe>
+						<iframe frameborder="no" border="0" src={{url_for('words_S')}} style="height:500px;width:800px"scrolling="no"></iframe>
+					</div>
+			
 				</div>
 				<div id="player"></div>
 	</main>

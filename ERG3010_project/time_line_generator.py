@@ -45,18 +45,19 @@ def deal_url(str):
     str = str[:end_pos]
     return str
 
-def get(singer_id,singer_name):   
-	name_ = singer_name
-	id_ = singer_id
-	album_url = 'https://music.163.com/artist/album?id={}'.format(id_)
-	print(name_, " ", id_)
-	browser.get(album_url)
-	browser.switch_to.frame('g_iframe')
-	html = browser.page_source
-	try:         
+def get(singer_id,singer_name): 
+    browser = webdriver.Chrome()  
+    name_ = singer_name
+    id_ = singer_id
+    album_url = 'https://music.163.com/artist/album?id={}'.format(id_)
+    print(name_, " ", id_)
+    browser.get(album_url)
+    browser.switch_to.frame('g_iframe')
+    html = browser.page_source
+    try:         
 		albumids, albumnames, albumdates, albumimgs = get_all_album(html)
-	except:
-		print("no album\n")
+    except:
+        print("no album\n")
 	return albumids, albumnames, albumdates, albumimgs
 
 def timeline_generator(singer_id,singer_name):

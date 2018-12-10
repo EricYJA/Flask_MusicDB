@@ -32,7 +32,7 @@
 	<main main class="s-home s-home--static col-twelve">
 		<div id="main" class="home-content">
 			<div class="row home-content__main" style="align-vertical:center">
-				<h1 id="title">MusicDB <span>Analysis</span></h1>
+				<h1 id="title" style="margin-top:120px">MusicDB <span>Analysis</span></h1>
 				<div id="search" align="center">
 					<form id="search-form" method="get" class="group" autocomplete="off" action={{url_for('singer')}} >
 						<div>
@@ -47,8 +47,17 @@
                         <div>
 						{{ error }} <br></br>
 						</div>
-
 					</form>
+					<div id="arrow"><h1 id="arrow-down"></h1></div>
+					</br>
+					</br>
+					</br>
+					</br>
+					</br>
+					<div id="arrow"><h1 id="arrow-up"></h1></div>
+					<div id ="melody_analysis">
+						<iframe frameborder="no" border="0" src={{url_for('melody_analysis')}} style="margin-top:50px;width:1000px;height:650px"scrolling="no"></iframe>
+					</div>
 				</div>
 			</div>
 		</div>	
@@ -75,8 +84,6 @@
 				<p>
 				The list on the right introduces the basic functions of this website.
 				</p>
-
-				<!-- <iframe frameborder="no" border="0" src="melody_analysis.html" scrolling="yes"></iframe> -->
             </div>
 
             <div class="col-four tab-full pull-right info-contact">
