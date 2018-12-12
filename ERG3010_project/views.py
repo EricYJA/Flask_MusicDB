@@ -68,6 +68,7 @@ def singer():
 
     # generate timeline
     album_list = timeline_generator(str(singer_list[0].singer_id), name)
+    print(album_list)
 
     # generate song_list.html
     html_generate(song_name_list, song_id_list)

@@ -438,19 +438,10 @@ def gen_poster(in_id, in_song_name, in_song_lyrics):
         random_line = 0
 
     if sid is not None:
+        text = '\n'.join([line.strip() for line in text.replace('\\n','\n').split('\n')])
+        text = unicode_str(text)
         song = Song(sid)
-        song.get_lrc(random_line)
-
-        if line_range is not None:
-            lrcs = song.song_lrc.split('\n')
-            tmp_lrcs = []
-            for i in line_range.split(','):
-                if '-' in i:
-                    a, b = i.split('-')
-                    tmp_lrcs += lrcs[int(a)-1:int(b)]
-                else:
-                    tmp_lrcs.append(lrcs[int(i)-1])
-            song.song_lrc = '\n'.join(tmp_lrcs)
+        song.get_lrc = text
 
         song.create_img(pic_style)
 
@@ -459,7 +450,7 @@ def gen_poster(in_id, in_song_name, in_song_lyrics):
         playlist.get_lrc(random_line)
         playlist.create_img(pic_style)
 
-    elif text is not None:
+    elif text is None:
         text = '\n'.join([line.strip() for line in text.replace('\\n','\n').split('\n')])
         text = unicode_str(text)
         
