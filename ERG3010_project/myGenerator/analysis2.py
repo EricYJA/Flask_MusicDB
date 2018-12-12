@@ -61,13 +61,13 @@ def network(in_lyrics, singer_name):
     # x = randint(1,100)
     # y = randint(1,100)
     for key, value in words.items():
-        if value >= 80:
+        if value >= 15:
             col = "#FB6107"
-        elif value < 80 and value > 40:
+        elif value < 15 and value > 10:
             col = "#274C77"
-        elif value <= 40:
+        elif value <= 10:
             col = "#FFFFFF"
-        dic = {"id": key, "label": key, "size": value, "color": col}
+        dic = {"id": key, "label": key, "size": value*1.5, "color": col}
         word.append(dic)
     read = {"nodes": word, "edges": relationship}
 

@@ -72,7 +72,7 @@ def singer():
     # generate song_list.html
     html_generate(song_name_list, song_id_list)
 
-    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr) #, album_list=album_list)
+    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr, album_list=album_list)
 
 
 @app.route('/song_list.html')
@@ -112,12 +112,6 @@ def song(song_name):
 @app.route('/song/lyrics.html')
 def lyrics():
     return render_template("lyrics.html")
-
-
-# for the graph
-@app.route('/melody_analysis.html')
-def melody_analysis():
-    return render_template("melody_analysis.html")
 
 
 @app.route('/singer/Singer_SA.html')

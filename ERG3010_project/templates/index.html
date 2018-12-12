@@ -56,7 +56,7 @@
 					</br>
 					<div id="arrow"><h1 id="arrow-up"></h1></div>
 					<div id ="melody_analysis">
-						<iframe frameborder="no" border="0" src={{url_for('melody_analysis')}} style="margin-top:50px;width:1000px;height:650px"scrolling="no"></iframe>
+						<div id="704fa6a2209d412491311b26793969d6" style="width:1000px;height:600px;"></div>
 					</div>
 				</div>
 			</div>
@@ -164,6 +164,9 @@
     </div>
 
 	<!-- Java Script ================================================== -->
+	<script src="{{url_for('static', filename='js/charts/graph.js')}}"></script>    
+    <script src="{{url_for('static', filename='js/charts/graph2.js')}}"></script>
+	<script src="{{url_for('static', filename='js/charts/chart.js')}}"></script>
 	<script src="../static/js/plugins.js"></script>
 	<script src="../static/js/main.js"></script>
 	<script src="../static/js/new.js"></script>
