@@ -223,7 +223,7 @@ function getChart2(data){
 	var option = {
 		"title": [
 			{
-				"text": "Sentiment",
+				"text": "",
 				"left": "auto",
 				"top": "auto",
 				"textStyle": {
@@ -282,7 +282,8 @@ function getChart2(data){
 						"show": true,
 						"position": "top",
 						"textStyle": {
-							"fontSize": 12
+							"fontSize": 12,
+							"color":"white"
 						}
 					},
 					"emphasis": {
@@ -308,7 +309,7 @@ function getChart2(data){
 				"orient": "horizontal",
 				"textStyle": {
 					"fontSize": 15,
-					"color": "#274C77"
+					"color": "white"
 				}
 			}
 		],
@@ -317,6 +318,8 @@ function getChart2(data){
 			"type": "time"
 		},
 		"color": [
+			"#fb6107",
+			"#274c77",
 			"#c23531",
 			"#2f4554",
 			"#61a0a8",
@@ -405,8 +408,8 @@ function getChart3(data){
 				"fontSize": 14,
 				"color":"#FFF"
 			},
-			"backgroundColor": "rgba(50,50,50,0.7)",
-			"borderColor": "#333",
+			"backgroundColor": "white",
+			"borderColor": "white",
 			"borderWidth": 0
 		},
 		"series": [
@@ -438,7 +441,18 @@ function getChart3(data){
 			}
 		],
 		"animation": true,
-		"angleAxis": {},
+		"angleAxis": {
+			"axisLine":{
+				"lineStyle":{
+					"color":"white"
+				}
+			},
+			"splitLine":{
+				"lineStyle":{
+					"color":"white"
+				}
+			}
+		},
 		"radiusAxis": {
 			"show": true,
 			"type": "category",
@@ -452,7 +466,8 @@ function getChart3(data){
 						"curveness": 0,
 						"type": "solid",
 						"color":"#FFF"
-					}
+					},
+					"color":"#FFF"
 				}
 			},
 			"axisLabel": {
@@ -554,7 +569,10 @@ function getChart4(data){
 				"coordinateSystem": "polar",
 				"stack": "stack",
 				"name": "SCENE",
-				"data": data
+				"data": data,
+				"itemStyle": {
+					"color":"#FB6107",
+				}
 			}
 		],
 		"legend": [
@@ -574,7 +592,18 @@ function getChart4(data){
 			}
 		],
 		"animation": true,
-		"angleAxis": {},
+		"angleAxis": {
+			"axisLine":{
+				"lineStyle":{
+					"color":"white"
+				}
+			},
+			"splitLine":{
+				"lineStyle":{
+					"color":"white"
+				}
+			}
+		},
 		"radiusAxis": {
 			"show": true,
 			"type": "category",
@@ -587,7 +616,8 @@ function getChart4(data){
 						"curveness": 0,
 						"type": "solid",
 						"color":"#FFF"
-					}
+					},
+					"color":"#FFF"
 				}
 			},
 			"axisLabel": {
@@ -687,7 +717,10 @@ function getChart5(data){
 				"coordinateSystem": "polar",
 				"stack": "stack",
 				"name": "TIME",
-				"data": data
+				"data": data,
+				"itemStyle": {
+					"color":"#FB6107",
+				}
 			}
 		],
 		"legend": [
@@ -722,19 +755,14 @@ function getChart5(data){
 						"curveness": 0,
 						"type": "solid",
 						"color":"#FFF"
-					}
+					},
+					"color":"#FFF"
 				}
 			},
 			"axisLine": {
 				"show": true,
 				"lineStyle": {
-					"normal": {
-						"width": 1,
-						"opacity": 1,
-						"curveness": 0,
-						"type": "solid",
-						"color":"#FFF"
-					}
+					"color":"white",
 				}
 			},
 			"axisLabel": {
@@ -755,7 +783,8 @@ function getChart5(data){
 						"curveness": 0,
 						"type": "solid",
 						"color":"#FFF"
-					}
+					},
+					"color":"#FFF"
 				}
 			},
 			"axisLabel": {
