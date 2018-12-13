@@ -73,7 +73,7 @@ def singer():
     # generate song_list.html
     html_generate(song_name_list, song_id_list)
 
-    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr) #, album_list=album_list)
+    return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr, album_list=album_list)
 
 
 @app.route('/song_list.html')
