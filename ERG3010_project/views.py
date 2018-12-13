@@ -114,33 +114,6 @@ def song(song_name):
 def lyrics():
     return render_template("lyrics.html")
 
-
-# for the graph
-@app.route('/melody_analysis.html')
-def melody_analysis():
-    return render_template("melody_analysis.html")
-
-
-@app.route('/singer/Singer_SA.html')
-def Singer_SA():
-    return render_template("Singer_SA.html")
-
-
-@app.route('/singer/words_A.html')
-def words_A():
-    return render_template("words_A.html")
-
-
-@app.route('/singer/words_S.html')
-def words_S():
-    return render_template("words_S.html")
-
-
-@app.route('/singer/words_T.html')
-def words_T():
-    return render_template("words_T.html")
-
-
 @app.route('/song/Song_SAP.html')
 def Song_SAP():
     return render_template("Song_SAP.html")
