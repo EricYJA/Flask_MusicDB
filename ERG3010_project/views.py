@@ -78,7 +78,7 @@ def singer():
     return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr, album_list=album_list)
 
 
-@app.route('/singer/song_list.html')
+@app.route('/song_list.html')
 def song_list():
     return render_template("song_list.html")
 
@@ -96,6 +96,7 @@ def song(song_name):
     # generate the html file
     print(s_lyrics)
     lyrics_html_generate(str(s_lyrics))
+    Analysis(str(s_lyrics), True)
 
     list_sing = Sing.query.filter(Sing.song_song_id == s_id).all()
     list_singer = Singer.query.filter(Singer.singer_id == list_sing[0].singer_singer_id).all()
