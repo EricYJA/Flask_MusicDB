@@ -76,7 +76,7 @@ def singer():
     return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr, album_list=album_list)
 
 
-@app.route('/song_list.html')
+@app.route('/singer/song_list.html')
 def song_list():
     return render_template("song_list.html")
 
