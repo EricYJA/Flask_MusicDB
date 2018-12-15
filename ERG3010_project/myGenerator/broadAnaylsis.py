@@ -56,9 +56,9 @@ def cut_song_to_words(song_file, saved_words_file):
     return char_counter, genre_counter
 
 # 将分词结果转换为向量
-def word2vec(words_file):
+def word2vec(words_file, singer_name):
     save_dir = os.path.dirname((words_file))
-    vector_file = os.path.join(save_dir, 'word_vectors.model')
+    vector_file = os.path.join(save_dir, '{}_word_vectors.model'.format(singer_name))
     
     if os.path.exists(vector_file):
         print('find word vector file, loading directly...')
@@ -95,26 +95,24 @@ def write2Json(char_counter, genre_counter, vector_model):
     json_data_adj = json.dumps(dataA)
     json_data_time = json.dumps(dataT)
     json_data_scene = json.dumps(dataS)
-    with codecs.open("broad_adj.json", "w", "utf-8") as f:
+    with codecs.open("broad_adj.json", "w", "utf-8") as f: # 改路径
         f.write(json_data_adj)
-    with codecs.open("broad_time.json", "w", "utf-8") as f:
+    with codecs.open("broad_time.json", "w", "utf-8") as f: # 改路径
         f.write(json_data_time)
-    with codecs.open("broad_scene.json", "w", "utf-8") as f:
+    with codecs.open("broad_scene.json", "w", "utf-8") as f: # 改路径
         f.write(json_data_scene)    
 
 def broadAnalysis():
-    # song_path: 原始歌词 来自mysql
     # 同时 得到歌手的名字
-    song_file = "D:\\Academic_work\\01_ERG3010\\ERGproj\\broadTextMining\\lijianlyrics2.txt"
-    words_file = "D:\\Academic_work\\01_ERG3010\\ERGproj\\broadTextMining\\words_file.txt"
-    # 如果这个歌手的所有歌词没有训练过，或者有大量新的歌词加进来，重新统计
-    # 如果没有更改，或者已经训练过则读取原有的json文件
-    # 有重大改动删除相关json文件
-    if not (os.path.exists(os.path.join(current_path, "broad_adj.json")) and 
-            os.path.exists(os.path.join(current_path, "broad_time.json")) and
-            os.path.exists(os.path.join(current_path, "broad_scene.json"))):
-        char_counter, genre_counter = cut_song_to_words(song_file, words_file) #输入一个歌手所有歌曲歌词
-        vector_model = word2vec(words_file) #无需用户输入
-        write2Json(char_counter, genre_counter, vector_model) #无需用户输入
+    root_path = os.path.abspath('.')
+    song_file = "lijianlyrics2.txt" # 要改，输入的歌词
+    words_file = "words_file.txt" # 不用改
+
+    # song_file: 就是输入的歌词
+    # words_file：words file
+    # json文件的路径放在你想放的路径里, 发送给前段的只有json文件
+    char_counter, genre_counter = cut_song_to_words(song_file, os.path.join(root_path, words_file)) 
+    vector_model = word2vec(os.path.join(root_path, words_file), singer_name) #无需用户输入, 需要歌手名字
+    write2Json(char_counter, genre_counter, vector_model) #无需用户输入
 
 broadAnalysis()
