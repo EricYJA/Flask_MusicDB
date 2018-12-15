@@ -4,3 +4,7 @@ __init__.py
 __pycache__
 ERG3010_project/static/lyricsCloud/
 ERG3010_project/static/posters/
+ERG3010_project/static/file.json
+ERG3010_project/templates/lyrics.html
+ERG3010_project/templates/song_list.html
+ERG3010_project/static/.DS_Store

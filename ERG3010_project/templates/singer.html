@@ -43,12 +43,7 @@
 					<h2> Lyrics Analysis </h2>
 					<img class="zoom" src={{ lyrics_cloud }}/>
 					<h3> Word <span>Cloud</span></h3>
-					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
-						at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-						opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
-						packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
-						will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
-						accident,sometimes on purpose (injected humour and the like).</p>
+					<p style="margin-bottom:12rem">A tag cloud (word cloud, or weighted list in visual design) is a novelty visual representation of text data, typically used to depict keyword metadata (tags) on websites, or to visualize free form text. Tags are usually single words, and the importance of each tag is shown with font size or color. Our wordcloud is based on all lyrics of one artist.</p>
 				</div>
 				<!--
 				<div id="lyrics_generator">
@@ -75,14 +70,17 @@
 					<div id="sentiment-analysis">
 						<h2> Sentiment Analysis </h2>
 						<br/>
-						<iframe frameborder="no" border="0" src={{url_for('Singer_SA')}} style="height:500px;width:800px"scrolling="no"></iframe>
+						<div id="5ff03a3ab5b14ad4bb54ce1da2753ce6" style="left:10%;width:800px;height:400px;"></div>
 					</div>
 
 					<div id="words-frequency">
 						<h2> Words Frequency </h2>
 						<br/>
-						<iframe frameborder="no" border="0" src={{url_for('words_A')}} style="height:500px;width:800px"scrolling="no"></iframe>
-						<iframe frameborder="no" border="0" src={{url_for('words_S')}} style="height:500px;width:800px"scrolling="no"></iframe>
+						<div id="dcc7393e722e4c5fa3e08ae3fa462880" style="left:10%;width:800px;height:500px;"></div>						
+						<br/>
+						<div id="b97ca027168b43a885acb151c4991089" style="left:10%;width:800px;height:500px;"></div>	
+						<br/>
+						<div id="a81bba8742d9445486c2996cab457e87" style="left:10%;width:800px;height:500px;"></div>				
 					</div>
 			
 				</div>
@@ -92,55 +90,12 @@
 		<a href="{{url_for('index')}}">Home</a>
 	</div>
 	<div class="timeline col-two draggable">
-		<!--
-				这一段每个class为"album-image"的div都需要通过函数生成，包括title，style内的url链接以及后面的public time也是变量。
-				title为专辑名称，style内的url链接应该是可以利用爬图片的那个function找到对应的图片链接地址，时间的话数据库也有，最好可以按照时间顺序生成下面的div元素。
-				把这个作为template渲染的时候下面这些都是空的，然后我想的是点击专辑就直接跳到网易的页面好了，反正播放又不是我们的主要功能。
-				-->
-		<div class="album-image">
-			<div id="38477609" title="十二号诛杀者（Cover洛天依）" style="background-image: url(../static/images/album/38477609_十二号诛杀者（Cover洛天依）.jpg);"></div>
-			<h3 class="public-time">2018.4.26</h3>
-		</div>
-		<div class="album-image">
-			<div id="38631994" title="空空如也（Cover胡66）" style="background-image: url(../static/images/album/38631994_空空如也（Cover胡66）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="39276228" title="典狱司（Cover音频怪物）" style="background-image: url(../static/images/album/39276228_典狱司（Cover音频怪物）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="39524205" title="六一儿歌集锦" style="background-image: url(../static/images/album/39524205_六一儿歌集锦.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="39685001" title="黑凤梨（Cover洛天依）" style="background-image: url(../static/images/album/39685001_黑凤梨（Cover洛天依）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="71683099" title="何以歌（CoverAki阿杰）" style="background-image: url(../static/images/album/71683099_何以歌（CoverAki阿杰）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="71848121" title="时间飞行（Cover白宇、朱一龙）" style="background-image: url(../static/images/album/71848121_时间飞行（Cover白宇、朱一龙）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="72217937" title="为邪·九九八十一（Cover萧忆情）" style="background-image: url(../static/images/album/72217937_为邪·九九八十一（Cover萧忆情）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="72488277" title="此间有妙境" style="background-image: url(../static/images/album/72488277_此间有妙境.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="72757467" title="猫狗杂货铺" style="background-image: url(../static/images/album/72757467_猫狗杂货铺.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
-		<div class="album-image">
-			<div id="74168962" title="昔友（逆水寒同人剧情歌）" style="background-image: url(../static/images/album/74168962_昔友（逆水寒同人剧情歌）.jpg);"></div>
-			<h3 class="public-time">2018.5.12</h3>
-		</div>
+		{% for album in album_list %}
+			<div class="album-image">
+				<div id={{ album.a_id }} title={{ album.a_name }} style="background-image: url({{ album.a_url }});"></div>
+				<h3 class="public-time">{{ album.a_date }}</h3>
+			</div>
+		{% endfor %}
 	</div>
 
 	<!-- preloader
@@ -161,7 +116,11 @@
 	<!-- Java Script ================================================== -->
 	<script src="../static/js/sigma.min.js"></script>
 	<script src="../static/js/plug-in/sigma.parsers.json.min.js"></script>
-	<script src="../static/js/particle.js"></script>
+	<script src="../static/js/charts/particle.js"></script>
+	<script src="../static/js/charts/graph.js"></script>
+	<script src="../static/js/charts/graph2.js"></script>
+	<script src="../static/js/charts/graph3.js"></script>
+	<script src="../static/js/charts/chart.js"></script>
 	<script src="../static/js/plugins.js"></script>
 	<script src="../static/js/main.js"></script>
 	<script src="../static/js/new.js"></script>

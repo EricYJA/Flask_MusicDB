@@ -25,7 +25,8 @@ class NetEase():
             'Connection': 'keep-alive',
             'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8",
             'Referer': 'http://music.163.com/',
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36"
+            "User-Agent": 'ERG3010_project/chromedriver'
+            # "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36"
         }
         self.cookies = dict(appver="1.2.1", os="osx")
 
@@ -52,7 +53,8 @@ class NetEase():
             'Connection': 'keep-alive',
             'Content-Type': "application/x-www-form-urlencoded; charset=UTF-8",
             'Referer': 'http://music.163.com/',
-            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36"
+            "User-Agent": 'ERG3010_project/chromedriver'
+            # "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36"
         }
         cookies = dict(appver="1.2.1", os="osx")
         res = None
