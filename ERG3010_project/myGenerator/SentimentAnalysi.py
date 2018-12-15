@@ -25,7 +25,7 @@ root_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 class Seg(object):
     # 保存 stopwords 的路径
-    stop_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + '\\SentimentAnalysisok\\stopwords.txt'
+    stop_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__))) + 'stopwords.txt'
 
     def __init__(self):
         self.seg_result = []
@@ -272,10 +272,10 @@ def Analysis(lyric, mod = False):
         # best_words = "D:\Academic_work\01_ERG3010\Project\lyricsAnalysis2\svmmodel-bestwords.dat"
         model = Sentiment(best_words)
         model.train_model(train_data)
-        model.save_model(root_path + "\\SentimentAnalysisok\\svmmodel")  # 保存 model 的路径
+        model.save_model(root_path + "ERG3010_project/svmmodel")  # 保存 model 的路径
     else:
         model = Sentiment()
-        model.load_model(root_path + "\\SentimentAnalysisok\\svmmodel")  # 保存model 的路径
+        model.load_model(root_path + "ERG3010_project/svmmodel")  # 保存model 的路径
 
     lyrics_segs = lyric.split("+")  # 一首歌 一首歌分开
     lyrics_list = []
@@ -300,16 +300,16 @@ def Analysis(lyric, mod = False):
     
     json_data = json.dumps(data)
     if len(data) > 2:
-        with codecs.open("sentiment_data.json", "w", "utf-8") as f:
+        with codecs.open("ERG3010_project/static/sentiment_data.json", "w", "utf-8") as f:
             f.write(json_data)
     else:
-        with codecs.open("sentiment_data_1.json", "w", "utf-8") as f:
+        with codecs.open("ERG3010_project/static/sentiment_data_1.json", "w", "utf-8") as f:
             f.write(json_data)
 
 #------------------------------------------------------------------------#
-
-with open("D:\\Academic_work\\01_ERG3010\\ERGproj\\SentimentAnalysisok\\lijianlyrics2.txt", "r", encoding = "utf-8") as f:
-    lyric = f.read()
-
-Analysis(lyric, mod = True)  # Analysis(lyric, mod)
+#
+# with open("D:\\Academic_work\\01_ERG3010\\ERGproj\\SentimentAnalysisok\\lijianlyrics2.txt", "r", encoding = "utf-8") as f:
+#     lyric = f.read()
+#
+# Analysis(lyric, mod = True)  # Analysis(lyric, mod)
 

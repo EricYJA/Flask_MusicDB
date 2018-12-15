@@ -9,6 +9,7 @@ from ERG3010_project.song_list_generator import html_generate
 from ERG3010_project.lyrics_html_generator import lyrics_html_generate
 from ERG3010_project.myGenerator.analysis2 import network
 from ERG3010_project.time_line_generator import timeline_generator
+from ERG3010_project.myGenerator.SentimentAnalysi import Analysis
 
 
 def return_img_stream(img_local_path):
@@ -63,6 +64,7 @@ def singer():
     # generate wordcloud, json
     total_lyrics.strip("+")
     gen_lyrics_wordcloud(total_lyrics, str(singer_list[0].singer_name))
+    Analysis(total_lyrics, True)
     network(total_lyrics, str(singer_list[0].singer_name))
     cloud_addr = "../static/lyricsCloud/" + str(singer_list[0].singer_name) + ".png"
 
@@ -113,12 +115,3 @@ def song(song_name):
 @app.route('/song/lyrics.html')
 def lyrics():
     return render_template("lyrics.html")
-
-@app.route('/song/Song_SAP.html')
-def Song_SAP():
-    return render_template("Song_SAP.html")
-
-
-@app.route('/song/Song_SAN.html')
-def Song_SAN():
-    return render_template("Song_SAN.html")
