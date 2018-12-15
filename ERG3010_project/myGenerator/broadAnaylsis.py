@@ -108,7 +108,7 @@ def broadAnalysis():
     song_file = "D:\\Academic_work\\01_ERG3010\\ERGproj\\broadTextMining\\lijianlyrics2.txt"
     words_file = "D:\\Academic_work\\01_ERG3010\\ERGproj\\broadTextMining\\words_file.txt"
     # 如果这个歌手的所有歌词没有训练过，或者有大量新的歌词加进来，重新统计
-    # 如果没有更改，或者已经训练过则读取原有的jason文件
+    # 如果没有更改，或者已经训练过则读取原有的json文件
     # 有重大改动删除相关json文件
     if not (os.path.exists(os.path.join(current_path, "broad_adj.json")) and 
             os.path.exists(os.path.join(current_path, "broad_time.json")) and
