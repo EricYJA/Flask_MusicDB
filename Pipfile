@@ -20,6 +20,8 @@ faker = "*"
 beautifulsoup4 = "*"
 lxml = "*"
 tensorflow = "*"
+pandas = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.6"
