@@ -299,7 +299,6 @@ def Analysis(lyric, mod = False):
         count += 1
     
     json_data = json.dumps(data)
-
     if len(data) > 2:
         with codecs.open("ERG3010_project/static/sentiment_data.json", "w", "utf-8") as f:
             f.write(json_data)
