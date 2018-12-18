@@ -243,6 +243,7 @@ class Img():
         w = self.share_img_width
         
         album_img = None
+        print(img_url)
         if img_url.startswith('http'):
             raw_img = requests.get(img_url)
             album_img = Image.open(BytesIO(raw_img.content))

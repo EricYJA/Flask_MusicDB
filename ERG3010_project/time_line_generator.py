@@ -36,6 +36,8 @@ def get(singer_id, singer_name):
     # This is for silent crawling #
     chrome_options = Options()
     chrome_options.add_argument("--headless")
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
     browser = webdriver.Chrome('ERG3010_project/chromedriver', chrome_options=chrome_options)
 
     name_ = singer_name

@@ -8,4 +8,5 @@ ERG3010_project/static/file.json
 ERG3010_project/templates/lyrics.html
 ERG3010_project/templates/song_list.html
 ERG3010_project/static/sentiment_data_1.json
-
+ERG3010_project/myGenerator/words_file.txt
+ERG3010_project/myGenerator/*_word_vectors.model

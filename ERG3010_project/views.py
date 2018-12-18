@@ -10,6 +10,7 @@ from ERG3010_project.lyrics_html_generator import lyrics_html_generate
 from ERG3010_project.myGenerator.analysis2 import network
 from ERG3010_project.time_line_generator import timeline_generator
 from ERG3010_project.myGenerator.SentimentAnalysi import Analysis
+from ERG3010_project.myGenerator.broadAnaylsis import broadAnalysis
 
 
 def return_img_stream(img_local_path):
@@ -27,7 +28,7 @@ def index():
     if str(error) == "1":
         return render_template("index.html", error="Illegal Character")
     elif str(error) == "2":
-        return render_template("index.html", error="Name does not exist")
+        return render_template("index.html", error="Sorry, we currently don't have that singer")
     elif str(error) == "3":
         return render_template("index.html", error="Invalid song name")
     else:
@@ -52,6 +53,7 @@ def singer():
     total_lyrics = ""
     song_id_list = []
     song_name_list = []
+    print("Mid ---------------------------- ")
     for i in range(len(sings_list)):
         # for the word cloud
         local_songs = Song.query.filter(Song.song_id == sings_list[i].song_song_id).all()
@@ -60,19 +62,30 @@ def singer():
         # for the generation of front end
         song_id_list.append(str(local_songs[0].song_id))
         song_name_list.append(str(local_songs[0].song_name))
+    print("Search End ---------------------------")
 
     # generate wordcloud, json
     total_lyrics.strip("+")
+
+    print("Generate lyric cloud...")
     gen_lyrics_wordcloud(total_lyrics, str(singer_list[0].singer_name))
+
+    print("broad analysising...")
+    broadAnalysis(name, total_lyrics)
+
+    print("Analysis sentiment...")
     Analysis(total_lyrics, True)
+
+    print("Analysis2...")
     network(total_lyrics, str(singer_list[0].singer_name))
     cloud_addr = "../static/lyricsCloud/" + str(singer_list[0].singer_name) + ".png"
 
     # generate timeline
+    print("Generating timeline...")
     album_list = timeline_generator(str(singer_list[0].singer_id), name)
-    print(album_list)
 
     # generate song_list.html
+    print("rewriting html...")
     html_generate(song_name_list, song_id_list)
 
     return render_template("singer.html", singer_name=name, lyrics_cloud=cloud_addr, album_list=album_list)
@@ -94,7 +107,6 @@ def song(song_name):
     s_lyrics = list_songs[0].lyrics
 
     # generate the html file
-    print(s_lyrics)
     lyrics_html_generate(str(s_lyrics))
     Analysis(str(s_lyrics), True)
 
@@ -105,11 +117,11 @@ def song(song_name):
     singer_name = list_singer[0].singer_name
     in_lyrics = request.args.get('lyrics')
 
-    if in_lyrics is not None:
-        gen_poster(list_songs[0].song_id, song_name, in_lyrics)
-        file_path = "../static/posters/" + str(song_name) + ".png"
-        # img_stream = return_img_stream(file_path)
-        return render_template("song.html", song=song_name, singer=singer_name, img_stream=file_path, song_id=s_id)
+    # if in_lyrics is not None:
+        # gen_poster(list_songs[0].song_id, song_name, in_lyrics)
+        # file_path = "../static/posters/" + str(song_name) + ".png"
+        # # img_stream = return_img_stream(file_path)
+        # return render_template("song.html", song=song_name, singer=singer_name, img_stream=file_path, song_id=s_id)
     return render_template("song.html", song=song_name, singer=singer_name, song_id=s_id)
 
 
