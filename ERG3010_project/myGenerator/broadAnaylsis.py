@@ -5,7 +5,7 @@
 '''
 
 from collections import Counter, defaultdict
-import thulac
+import jieba.posseg as psg
 import os
 import multiprocessing
 from gensim.models import Word2Vec
@@ -14,7 +14,7 @@ import json
 import codecs
 
 
-def cut_song_to_words(lyrics_string, saved_words_file):
+def cut_song_to_words(all_lyrics, saved_words_file):
     save_dir = os.path.dirname((saved_words_file))
 
     char_counter = Counter()  # 字频统计
@@ -22,11 +22,9 @@ def cut_song_to_words(lyrics_string, saved_words_file):
     word_counter = Counter()  # 词频统计
     genre_counter = defaultdict(Counter)  # 针对每个词性的Counter
 
-    fid_save = open(saved_words_file, 'w', encoding='utf-8')  # word2vec 要读的文件
-    lex_analyzer = thulac.thulac()  # 分词器
+    fid_save = open(saved_words_file, 'w', encoding = 'utf-8') #word2vec 要读的文件
     line_cnt = 0
 
-    all_lyrics = lyrics_string
     lyrics_segs = all_lyrics.split("+")  # 一首歌 一首歌分开
 
     for one_song in lyrics_segs:
@@ -36,8 +34,9 @@ def cut_song_to_words(lyrics_string, saved_words_file):
         for char in valid_char_list:
             char_counter[char] += 1
         regularized_song = ''.join(valid_char_list)
-        word_genre_pairs = lex_analyzer.cut(regularized_song)
-
+        word_genre_pairs = []
+        for w in psg.cut(regularized_song):
+            word_genre_pairs.append([w.word, w.flag])
         word_list = []
         for word, genre in word_genre_pairs:
             word_list.append(word)
@@ -46,7 +45,7 @@ def cut_song_to_words(lyrics_string, saved_words_file):
             genre_counter[genre][word] += 1
 
         save_line = ' '.join(word_list)
-        fid_save.write(save_line + '\n')  # 一首歌一行，进行 word2vec 词向量分析
+        fid_save.write(save_line + '\n')   # 一首歌一行，进行 word2vec 词向量分析
 
         if line_cnt % 10 == 0:
             print('%d songs processed.' % line_cnt)
@@ -56,11 +55,12 @@ def cut_song_to_words(lyrics_string, saved_words_file):
 
     return char_counter, genre_counter
 
+
 # 将分词结果转换为向量
 def word2vec(words_file, singer_name):
     save_dir = os.path.dirname((words_file))
     vector_file = os.path.join(save_dir, '{}_word_vectors.model'.format(singer_name))
-    
+
     if os.path.exists(vector_file):
         print('find word vector file, loading directly...')
         model = Word2Vec.load(vector_file)
@@ -72,6 +72,7 @@ def word2vec(words_file, singer_name):
     model.save(vector_file)
 
     return model
+
 
 def write2Json(char_counter, genre_counter, vector_model):
     def get_counter(counter):
@@ -101,10 +102,10 @@ def write2Json(char_counter, genre_counter, vector_model):
     with codecs.open("ERG3010_project/static/broad_time.json", "w", "utf-8") as f: # 改路径
         f.write(json_data_time)
     with codecs.open("ERG3010_project/static/broad_scene.json", "w", "utf-8") as f: # 改路径
-        f.write(json_data_scene)    
+        f.write(json_data_scene)
 
 
-def broadAnalysis(singer_name, lyrics_string):
+def broadAnalysis(singer_name, total_lyrics):
     # 同时 得到歌手的名字
     root_path = os.path.abspath('.')
     words_file = "ERG3010_project/myGenerator/words_file.txt" # 不用改
@@ -112,7 +113,11 @@ def broadAnalysis(singer_name, lyrics_string):
     # song_file: 就是输入的歌词
     # words_file：words file
     # json文件的路径放在你想放的路径里, 发送给前段的只有json文件
-    char_counter, genre_counter = cut_song_to_words(lyrics_string, os.path.join(root_path, words_file))
+    char_counter, genre_counter = cut_song_to_words(total_lyrics, os.path.join(root_path, words_file))
     vector_model = word2vec(os.path.join(root_path, words_file), singer_name) #无需用户输入, 需要歌手名字
     write2Json(char_counter, genre_counter, vector_model) #无需用户输入
+
+
+if __name__ == "__main__":
+    broadAnalysis()
 
